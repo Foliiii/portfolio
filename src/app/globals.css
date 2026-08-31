@@ -3,23 +3,37 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
+  --background: #eef0ee;
+  --foreground: #101314;
+  --muted: #83888c;
+  --border: #d8dad7;
   --card: #ffffff;
-  --accent: #4f46e5;
+  --accent: #0039a6;
   --accent-foreground: #ffffff;
+  /* Always the same blue, in both themes — for the couple of spots (project
+     tech tags, icons) that sit on a card, which stays light-colored either way. */
+  --card-accent: #0039a6;
+  /* Same idea: card title/body text stays dark-on-light regardless of theme,
+     since the card surface itself never goes dark. */
+  --card-foreground: #101314;
+  --card-muted: #83888c;
+  --grid-line: rgba(0, 57, 166, 0.05);
 }
 
 .dark {
-  --background: #0a0a0f;
-  --foreground: #f1f5f9;
-  --muted: #94a3b8;
-  --border: #1f2430;
-  --card: #12131a;
-  --accent: #818cf8;
-  --accent-foreground: #0a0a0f;
+  /* "Blueprint" dark mode: the accent becomes the page itself, so every other
+     role shifts to whatever still reads against a solid blue field. */
+  --background: #0039a6;
+  --foreground: #ffffff;
+  --muted: #a9c0e2;
+  --border: #c3d3ee;
+  --card: #eef0ee;
+  --accent: #cfdcf3;
+  --accent-foreground: #0039a6;
+  --card-accent: #0039a6;
+  --card-foreground: #101314;
+  --card-muted: #83888c;
+  --grid-line: rgba(255, 255, 255, 0.07);
 }
 
 @theme inline {
@@ -30,13 +44,24 @@
   --color-card: var(--card);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card-accent: var(--card-accent);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-muted: var(--card-muted);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  --font-display: var(--font-archivo);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--grid-line) 0,
+    var(--grid-line) 1px,
+    transparent 1px,
+    transparent 64px
+  );
 }
 
 html {

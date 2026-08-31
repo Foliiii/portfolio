@@ -11,15 +11,15 @@ export default function Projects() {
             className="flex flex-col rounded-xl border border-border bg-card p-6 transition hover:border-accent/60"
           >
             <div className="flex items-start justify-between gap-4">
-              <h3 className="font-semibold">{project.title}</h3>
-              <div className="flex shrink-0 gap-3 text-muted">
+              <h3 className="font-display font-semibold text-card-foreground">{project.title}</h3>
+              <div className="flex shrink-0 gap-3 text-card-muted">
                 {project.githubUrl ? (
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${project.title} on GitHub`}
-                    className="transition hover:text-accent"
+                    className="transition hover:text-card-accent"
                   >
                     <GitHubIcon />
                   </a>
@@ -30,19 +30,19 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${project.title} live demo`}
-                    className="transition hover:text-accent"
+                    className="transition hover:text-card-accent"
                   >
                     <ExternalLinkIcon />
                   </a>
                 ) : null}
               </div>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{project.description}</p>
+            <p className="mt-3 text-sm leading-relaxed text-card-muted">{project.description}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {project.tech.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent"
+                  className="rounded-full bg-card-accent/10 px-2.5 py-1 text-xs font-medium text-card-accent"
                 >
                   {tech}
                 </span>
